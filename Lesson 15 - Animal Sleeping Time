@@ -1,0 +1,25 @@
+#Input
+import requests
+animal:"https://raw.githubusercontent.com/genomicsclass/dagdata/master/inst/extdata/msleep_ggplot2.csv"
+rows=requests.get(animal)
+rows
+time=rows.text
+time=time.split("\n")
+print("""%s \t %s"""%(time[0].split(",")[0], time[0].split(",")[5]))
+
+#Output
+name 	 sleep_total
+
+#Input replacing step#8
+for eachtime in time:
+    print("""%s \t %s"""%(eachtime.split(",")[0], eachtime.split(",")[5]))
+    
+#Output showing the result with Index error    
+IndexError                                Traceback (most recent call last)
+<ipython-input-82-0c06452122c1> in <module>
+      1 for eachtime in time:
+----> 2     print("""%s \t %s"""%(eachtime.split(",")[0], eachtime.split(",")[5]))
+
+IndexError: list index out of range
+
+    
